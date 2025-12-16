@@ -76,7 +76,7 @@ const GallerySection = () => {
             <span className="text-primary"> فضای ما</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            تصاویری از مراسم‌های برگزار شده و فضای زیبای باغ تالار نارنجستان
+            تصاویری از مراسم‌های برگزار شده و فضای زیبای باغ تالار ایرانیان
           </p>
         </motion.div>
 

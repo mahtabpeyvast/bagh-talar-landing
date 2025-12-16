@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold text-accent mb-4">
-              باغ تالار نارنجستان
+              باغ تالار ایرانیان
             </h3>
             <p className="text-background/70 leading-relaxed mb-4">
               با بیش از ۲۰ سال تجربه، میزبان خاص‌ترین لحظات زندگی شما هستیم.
@@ -21,7 +21,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="tel:02112345678"
+                href="tel:09121769054"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <Phone className="w-5 h-5" />
@@ -62,10 +62,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4">تماس با ما</h4>
             <ul className="space-y-3 text-background/70">
-              <li>تهران، شمال شهر، بلوار باغ نارنجستان</li>
+              <li>خیابان جماران، خیابان حسن‌پور، کوچه ششم، باغ تالار ایرانیان</li>
               <li>
-                <a href="tel:02112345678" className="hover:text-accent transition-colors">
-                  ۰۲۱-۱۲۳۴۵۶۷۸
+                <a href="tel:09121769054" className="hover:text-accent transition-colors">
+                  ۰۹۱۲۱۷۶۹۰۵۴
                 </a>
               </li>
               <li>
@@ -84,7 +84,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-background/20 pt-8 text-center text-background/60 text-sm">
           <p>
-            © {new Date().getFullYear()} باغ تالار نارنجستان. تمامی حقوق محفوظ است.
+            © {new Date().getFullYear()} باغ تالار ایرانیان. تمامی حقوق محفوظ است.
           </p>
         </div>
       </div>

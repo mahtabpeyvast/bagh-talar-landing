@@ -59,7 +59,7 @@ const AboutSection = () => {
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069"
-                alt="باغ تالار نارنجستان"
+                alt="باغ تالار ایرانیان"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -84,7 +84,7 @@ const AboutSection = () => {
               <span className="text-primary">میزبان شادی‌های شما</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              باغ تالار نارنجستان با بیش از دو دهه تجربه در برگزاری مراسم، فضایی سرسبز و دلنشین را برای خاص‌ترین لحظات زندگی شما فراهم کرده است. تیم حرفه‌ای ما با اشتیاق و دقت، جشن شما را به یک خاطره ماندگار تبدیل می‌کند.
+              باغ تالار ایرانیان با بیش از دو دهه تجربه در برگزاری مراسم، فضایی سرسبز و دلنشین را برای خاص‌ترین لحظات زندگی شما فراهم کرده است. تیم حرفه‌ای ما با اشتیاق و دقت، جشن شما را به یک خاطره ماندگار تبدیل می‌کند.
             </p>
 
             {/* Feature Grid */}

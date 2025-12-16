@@ -10,8 +10,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: "تلفن تماس",
-    value: "۰۲۱-۱۲۳۴۵۶۷۸",
-    href: "tel:02112345678",
+    value: "۰۹۱۲۱۷۶۹۰۵۴",
+    href: "tel:09121769054",
   },
   {
     icon: Mail,
@@ -22,7 +22,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "آدرس",
-    value: "تهران، شمال شهر، بلوار باغ نارنجستان",
+    value: "خیابان جماران، خیابان حسن‌پور، کوچه ششم، باغ تالار ایرانیان",
     href: "#",
   },
   {
