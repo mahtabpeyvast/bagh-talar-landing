@@ -8,19 +8,20 @@ import PricingSection from "@/components/landing/PricingSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/landing/Footer";
+import WhatsAppButton from "@/components/landing/WhatsAppButton";
 
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>باغ تالار نارنجستان | مجلل‌ترین باغ تالار تهران</title>
+        <title>باغ تالار ایرانیان | مجلل‌ترین باغ تالار تهران</title>
         <meta
           name="description"
-          content="باغ تالار نارنجستان، مکانی رویایی برای برگزاری مراسم عروسی، جشن تولد و همایش‌های شرکتی در تهران. با بیش از ۲۰ سال تجربه."
+          content="باغ تالار ایرانیان، مکانی رویایی برای برگزاری مراسم عروسی، جشن تولد و همایش‌های شرکتی در تهران. با بیش از ۲۰ سال تجربه."
         />
         <meta
           name="keywords"
-          content="باغ تالار، تالار عروسی، باغ عروسی تهران، سالن همایش، جشن تولد"
+          content="باغ تالار، تالار عروسی، باغ عروسی تهران، سالن همایش، جشن تولد، باغ تالار ایرانیان"
         />
         <html lang="fa" dir="rtl" />
       </Helmet>
@@ -35,6 +36,7 @@ const Index = () => {
         <TestimonialsSection />
         <ContactSection />
         <Footer />
+        <WhatsAppButton />
       </main>
     </>
   );
