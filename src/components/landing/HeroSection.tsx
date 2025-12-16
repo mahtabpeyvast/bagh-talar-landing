@@ -29,7 +29,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="inline-block text-accent text-sm md:text-base font-medium mb-4"
           >
-            به باغ تالار نارنجستان خوش آمدید
+            به باغ تالار ایرانیان خوش آمدید
           </motion.span>
           
           <motion.h1
@@ -49,7 +49,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
           >
-            باغ تالار نارنجستان با فضایی دلپذیر و خدماتی بی‌نظیر، میزبان جشن‌های عروسی، تولد و مراسم شرکتی شماست
+            باغ تالار ایرانیان با فضایی دلپذیر و خدماتی بی‌نظیر، میزبان جشن‌های عروسی، تولد و مراسم شرکتی شماست
           </motion.p>
           
           <motion.div

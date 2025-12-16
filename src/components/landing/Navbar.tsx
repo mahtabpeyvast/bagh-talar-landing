@@ -41,7 +41,7 @@ const Navbar = () => {
               isScrolled ? "text-primary" : "text-primary-foreground"
             }`}
           >
-            باغ تالار نارنجستان
+            باغ تالار ایرانیان
           </a>
 
           {/* Desktop Navigation */}
