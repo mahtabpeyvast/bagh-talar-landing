@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -24,12 +25,37 @@ const testimonials = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
+        >
           <span className="text-primary font-medium text-sm mb-2 block">
             نظرات مشتریان
           </span>
@@ -40,13 +66,21 @@ const TestimonialsSection = () => {
           <p className="text-muted-foreground text-lg">
             نظرات واقعی مشتریانی که جشن‌های خود را در نارنجستان برگزار کرده‌اند
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+        >
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
               className="bg-card rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow relative"
             >
               {/* Quote Icon */}
@@ -83,9 +117,9 @@ const TestimonialsSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

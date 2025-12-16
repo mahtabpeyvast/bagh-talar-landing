@@ -1,4 +1,5 @@
 import { Heart, Briefcase, Cake, PartyPopper } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -31,12 +32,37 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const ServicesSection = () => {
   return (
     <section id="services" className="py-20 md:py-28 bg-secondary/30">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
+        >
           <span className="text-primary font-medium text-sm mb-2 block">
             خدمات ما
           </span>
@@ -48,13 +74,20 @@ const ServicesSection = () => {
           <p className="text-muted-foreground text-lg">
             از جشن عروسی تا مراسم شرکتی، تیم ما با تجربه و دقت بالا در خدمت شماست
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-2 gap-6 lg:gap-8"
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
               className="group relative rounded-2xl overflow-hidden bg-card shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {/* Image */}
@@ -80,9 +113,9 @@ const ServicesSection = () => {
                   {service.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

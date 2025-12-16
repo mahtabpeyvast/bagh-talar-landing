@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const packages = [
   {
@@ -51,12 +52,37 @@ const packages = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const PricingSection = () => {
   return (
     <section id="pricing" className="py-20 md:py-28 bg-secondary/30">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
+        >
           <span className="text-primary font-medium text-sm mb-2 block">
             پکیج‌های قیمت
           </span>
@@ -67,13 +93,21 @@ const PricingSection = () => {
           <p className="text-muted-foreground text-lg">
             با توجه به نیاز و بودجه خود، بهترین پکیج را انتخاب کنید
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto"
+        >
           {packages.map((pkg, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
               className={`relative rounded-2xl p-6 lg:p-8 transition-all duration-300 ${
                 pkg.popular
                   ? "bg-primary text-primary-foreground scale-105 shadow-2xl"
@@ -134,14 +168,20 @@ const PricingSection = () => {
               >
                 <a href="#contact">رزرو این پکیج</a>
               </Button>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Note */}
-        <p className="text-center text-muted-foreground text-sm mt-8">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center text-muted-foreground text-sm mt-8"
+        >
           * قیمت‌ها شامل ارزش افزوده می‌باشد. برای اطلاع از جزئیات بیشتر تماس بگیرید.
-        </p>
+        </motion.p>
       </div>
     </section>
   );
