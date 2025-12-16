@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -22,21 +23,41 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <span className="inline-block text-accent text-sm md:text-base font-medium mb-4 opacity-0 animate-fade-in">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block text-accent text-sm md:text-base font-medium mb-4"
+          >
             به باغ تالار نارنجستان خوش آمدید
-          </span>
+          </motion.span>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 text-shadow opacity-0 animate-fade-in-up [animation-delay:200ms]">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 text-shadow"
+          >
             مکانی رویایی برای
             <br />
             <span className="text-accent">لحظات خاص شما</span>
-          </h1>
+          </motion.h1>
           
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in-up [animation-delay:400ms]">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto"
+          >
             باغ تالار نارنجستان با فضایی دلپذیر و خدماتی بی‌نظیر، میزبان جشن‌های عروسی، تولد و مراسم شرکتی شماست
-          </p>
+          </motion.p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up [animation-delay:600ms]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Button
               asChild
               size="lg"
@@ -52,17 +73,20 @@ const HeroSection = () => {
             >
               <a href="#gallery">مشاهده گالری</a>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <a
+      <motion.a
         href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/80 animate-float cursor-pointer"
       >
         <ChevronDown size={32} />
-      </a>
+      </motion.a>
     </section>
   );
 };
