@@ -6,21 +6,21 @@ const testimonials = [
     name: "سارا و امیر محمدی",
     event: "مراسم عروسی",
     rating: 5,
-    text: "باغ تالار ایرانیان بهترین انتخاب برای عروسی ما بود. همه چیز عالی بود، از پذیرایی گرفته تا دکوراسیون. مهمانان ما همه تحت تأثیر قرار گرفتند.",
+    text: "باغ تالار ایرانیان بهترین انتخاب برای عروسی ما بود. همه چیز عالی بود، از پذیرایی گرفته تا دکوراسیون.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
   },
   {
     name: "شرکت فناوران نوین",
     event: "همایش سالانه",
     rating: 5,
-    text: "برای همایش سالانه شرکت، نارنجستان را انتخاب کردیم و بسیار راضی بودیم. تجهیزات حرفه‌ای و هماهنگی عالی تیم، کار ما را بسیار آسان کرد.",
+    text: "برای همایش سالانه شرکت، نارنجستان را انتخاب کردیم و بسیار راضی بودیم. تجهیزات حرفه‌ای و هماهنگی عالی.",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200",
   },
   {
     name: "خانواده رضایی",
     event: "جشن تولد",
     rating: 5,
-    text: "جشن تولد دخترمان در این باغ تالار برگزار شد. بچه‌ها خیلی خوش گذراندند و فضای باغ فوق‌العاده زیبا بود. حتماً دوباره می‌آییم!",
+    text: "جشن تولد دخترمان در این باغ تالار برگزار شد. بچه‌ها خیلی خوش گذراندند و فضای باغ فوق‌العاده زیبا بود.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200",
   },
 ];
@@ -40,28 +40,29 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.6 },
   },
 };
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-2xl mx-auto mb-16 md:mb-20"
         >
-          <span className="text-primary font-medium text-sm mb-2 block">
+          <div className="w-12 h-px bg-primary mx-auto mb-6" />
+          <span className="text-primary font-medium text-sm tracking-[0.2em] uppercase mb-4 block">
             نظرات مشتریان
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             مهمانان ما
-            <span className="text-primary"> چه می‌گویند؟</span>
+            <span className="gold-text"> چه می‌گویند؟</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             نظرات واقعی مشتریانی که جشن‌های خود را در ایرانیان برگزار کرده‌اند
@@ -80,24 +81,23 @@ const TestimonialsSection = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="bg-card rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow relative"
+              className="bg-card border border-border hover:border-primary/30 p-8 transition-all duration-300 relative"
             >
               {/* Quote Icon */}
-              <Quote className="w-10 h-10 text-primary/20 absolute top-6 left-6" />
+              <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
 
               {/* Rating */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-accent text-accent"
+                    className="w-4 h-4 fill-primary text-primary"
                   />
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-card-foreground mb-6 leading-relaxed">
+              <p className="text-foreground/80 mb-8 leading-relaxed">
                 "{testimonial.text}"
               </p>
 
@@ -106,10 +106,10 @@ const TestimonialsSection = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover grayscale"
                 />
                 <div>
-                  <h4 className="font-bold text-card-foreground">
+                  <h4 className="font-bold text-foreground">
                     {testimonial.name}
                   </h4>
                   <p className="text-sm text-muted-foreground">

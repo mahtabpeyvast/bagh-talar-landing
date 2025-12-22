@@ -30,21 +30,23 @@ const FoodGallerySection = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background via-muted/30 to-background">
-      <div className="container mx-auto px-4">
+    <section className="py-24 md:py-32 bg-secondary/30">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 md:mb-20"
         >
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+          <div className="w-12 h-px bg-primary mx-auto mb-6" />
+          <span className="text-primary font-medium text-sm tracking-[0.2em] uppercase mb-4 block">
             گالری غذا
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            تصاویر غذاهای ما
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            تصاویر
+            <span className="gold-text"> غذاهای ما</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             نمونه‌ای از غذاهای لذیذ و متنوع که توسط سرآشپزهای مجرب ما تهیه می‌شود
@@ -52,7 +54,7 @@ const FoodGallerySection = () => {
         </motion.div>
 
         {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+        <div className="columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
           {foodImages.map((image, index) => (
             <motion.div
               key={index}
@@ -60,24 +62,22 @@ const FoodGallerySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="break-inside-avoid group relative cursor-pointer rounded-xl overflow-hidden"
+              className="break-inside-avoid group relative cursor-pointer overflow-hidden"
               onClick={() => setSelectedImage(index)}
             >
               <img
                 src={image.src}
                 alt={image.title}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-white font-semibold text-lg">{image.title}</h3>
-                </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
-                    <ZoomIn className="w-6 h-6 text-white" />
-                  </div>
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/60 transition-all duration-500 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                  <ZoomIn className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <span className="text-foreground font-medium">{image.title}</span>
                 </div>
               </div>
+              {/* Border on hover */}
+              <div className="absolute inset-0 border border-transparent group-hover:border-primary/30 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>
@@ -89,35 +89,35 @@ const FoodGallerySection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+              className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm p-4"
               onClick={() => setSelectedImage(null)}
             >
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="absolute top-4 right-4 z-10 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                className="absolute top-6 right-6 z-10 p-2 text-foreground/60 hover:text-primary transition-colors"
                 onClick={() => setSelectedImage(null)}
               >
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6" />
               </motion.button>
 
               <motion.img
                 key={selectedImage}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 src={foodImages[selectedImage].src}
                 alt={foodImages[selectedImage].title}
-                className="max-w-full max-h-[90vh] object-contain rounded-lg"
+                className="max-w-full max-h-[90vh] object-contain"
                 onClick={(e) => e.stopPropagation()}
               />
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 glass px-6 py-3"
               >
-                <span className="text-white font-medium">
+                <span className="text-foreground font-medium">
                   {foodImages[selectedImage].title}
                 </span>
               </motion.div>
