@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-
+import heroImage from "@/assets/venue-autumn.jpg";
 const HeroSection = () => {
   return (
     <section
@@ -12,8 +12,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098')",
+          backgroundImage: `url('${heroImage}')`,
         }}
       />
       

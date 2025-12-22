@@ -1,37 +1,31 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import venueEntrance from "@/assets/venue-entrance.jpg";
+import venueGarden from "@/assets/venue-garden.jpg";
+import venueAutumn from "@/assets/venue-autumn.jpg";
+import venueSunset from "@/assets/venue-sunset.jpg";
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070",
-    alt: "مراسم عروسی",
-    category: "عروسی",
+    src: venueEntrance,
+    alt: "ورودی باغ",
+    category: "ورودی",
   },
   {
-    src: "https://images.unsplash.com/photo-1478146059778-26028b07395a?q=80&w=2070",
-    alt: "باغ نارنجستان",
+    src: venueGarden,
+    alt: "فضای سبز باغ",
     category: "فضای باغ",
   },
   {
-    src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069",
-    alt: "دکوراسیون",
-    category: "دکوراسیون",
+    src: venueAutumn,
+    alt: "پاییز در باغ",
+    category: "پاییز",
   },
   {
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069",
-    alt: "تالار اصلی",
-    category: "تالار",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2062",
-    alt: "پذیرایی",
-    category: "پذیرایی",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=2072",
-    alt: "شب مراسم",
-    category: "شب",
+    src: venueSunset,
+    alt: "غروب در باغ",
+    category: "غروب",
   },
 ];
 
@@ -86,16 +80,14 @@ const GallerySection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
+          className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6"
         >
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               onClick={() => setSelectedImage(image.src)}
-              className={`relative group cursor-pointer rounded-xl overflow-hidden ${
-                index === 0 || index === 5 ? "md:col-span-2 aspect-[16/9]" : "aspect-square"
-              }`}
+              className="relative group cursor-pointer rounded-xl overflow-hidden aspect-[4/3]"
             >
               <img
                 src={image.src}
