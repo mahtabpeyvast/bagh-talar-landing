@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import venueEntrance from "@/assets/venue-entrance.jpg";
+import venueEntrance from "@/assets/venue-entrance.png";
 import venueGarden from "@/assets/venue-garden.jpg";
 import venueAutumn from "@/assets/venue-autumn.jpg";
 import venueSunset from "@/assets/venue-sunset.jpg";
@@ -40,11 +40,11 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4 },
+    transition: { duration: 0.5 },
   },
 };
 
@@ -52,25 +52,26 @@ const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="gallery" className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-2xl mx-auto mb-16 md:mb-20"
         >
-          <span className="text-primary font-medium text-sm mb-2 block">
+          <div className="w-12 h-px bg-primary mx-auto mb-6" />
+          <span className="text-primary font-medium text-sm tracking-[0.2em] uppercase mb-4 block">
             گالری تصاویر
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             نگاهی به
-            <span className="text-primary"> فضای ما</span>
+            <span className="gold-text"> فضای ما</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            تصاویری از مراسم‌های برگزار شده و فضای زیبای باغ تالار ایرانیان
+            تصاویری از فضای زیبای باغ تالار ایرانیان
           </p>
         </motion.div>
 
@@ -87,19 +88,21 @@ const GallerySection = () => {
               key={index}
               variants={itemVariants}
               onClick={() => setSelectedImage(image.src)}
-              className="relative group cursor-pointer rounded-xl overflow-hidden aspect-[4/3]"
+              className="relative group cursor-pointer overflow-hidden aspect-[4/3]"
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               {/* Overlay */}
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
-                <span className="text-primary-foreground text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/60 transition-colors duration-500 flex items-center justify-center">
+                <span className="text-foreground text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide">
                   {image.category}
                 </span>
               </div>
+              {/* Border on hover */}
+              <div className="absolute inset-0 border border-transparent group-hover:border-primary/30 transition-colors duration-300" />
             </motion.div>
           ))}
         </motion.div>
@@ -113,23 +116,23 @@ const GallerySection = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-foreground/90 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 left-4 text-primary-foreground hover:text-accent transition-colors"
+              className="absolute top-6 left-6 text-foreground/60 hover:text-primary transition-colors"
             >
-              <X size={32} />
+              <X size={28} />
             </button>
             <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3 }}
               src={selectedImage}
               alt="تصویر بزرگ"
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              className="max-w-full max-h-[90vh] object-contain"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
