@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import venueEntrance from "@/assets/venue-entrance.png";
+import venueEntrance from "@/assets/venue-entrance.jpg";
 import venueGarden from "@/assets/venue-garden.jpg";
 import venueAutumn from "@/assets/venue-autumn.jpg";
 import venueSunset from "@/assets/venue-sunset.jpg";
