@@ -14,16 +14,14 @@ import food9 from "@/assets/food-9.jpg";
 import food10 from "@/assets/food-10.jpg";
 
 const foodImages = [
-  { src: food1, title: "کشک بادمجان },
-  { src: food2, title: "عدس پلو" },
-  { src: food3, title: "سالاد الویه" },
-  { src: food4, title: "کوکو سبزی" },
-  { src: food5, title: "سالاد الویه" },
-  { src: food6, title: "کباب تابه ای" },
-  { src: food7, title: "جوجه کباب" },
-  { src: food8, title: "سالاد فصل" },
-  { src: food9, title: "سوسیس بندری" },
-  { src: food10, title: "سالاد میوه" },
+{ src: food1, title: "کشک بادمجان" }, 
+{ src: food3, title: "سالاد الویه" },
+{ src: food5, title: "سالاد الویه" },
+{ src: food6, title: "میرزاقاسمی" }, 
+{ src: food7, title: "سوسیس بندری" },
+{ src: food8, title: "سالاد فصل" },
+{ src: food9, title: "سوسیس بندری" },
+{ src: food10, title: "سالاد میوه" },
 ];
 
 const FoodGallerySection = () => {
